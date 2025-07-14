@@ -11,7 +11,8 @@ class Category(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def save(self, *args, **kwargs):
-        if not self.slug:
+        print("DEBUG: Save method called")
+        if  not self.slug:
             self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 

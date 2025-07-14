@@ -1,91 +1,172 @@
-# 🛒 MegaMart Pro – E-commerce Backend (Django + DRF)
+🛒 MegaMart – E-Commerce Backend (Django + DRF)
+MegaMart is a scalable, production-ready e-commerce backend built with Django REST Framework, JWT authentication, custom user model, and modular app structure. This project is built using GitHub feature-branch workflow and follows real-world development practices.
 
-MegaMart Pro is a real-world e-commerce backend project built using Django and Django REST Framework, following industry-level practices.
+✅ Features
+🔐 JWT Authentication (djangorestframework-simplejwt)
 
----
+🧑‍💼 Custom User Model with Email Login
 
-## 🚀 Features
+📦 Product Catalog: Brands, Categories, Images
 
-- Custom User Model with JWT Auth
-- Product and Category Models
-- Cart & Order System
-- Role-Based Access
-- Admin Dashboard (upcoming)
-- Celery + Redis Support (upcoming)
+🛒 Cart, Orders, Checkout APIs (coming soon)
 
----
+📤 Product image upload and deletion with Django signals
 
-## 📁 Project Structure
+📄 API Documentation with Swagger (drf-yasg)
 
-mega_mart_finalproj/
-│
+📂 Modular App Structure (apps/ folder)
+
+⚙️ Environment Configurations with .env
+
+🧪 Unit Testing using pytest, pdb, logging
+
+🧠 GitHub Workflow (develop → feature → PR → merge)
+
+🧾 Requirements managed via requirements.txt
+
+🗂️ Project Structure
+bash
+Copy
+Edit
+mega_mart_backend/
 ├── apps/
-│ ├── users/
-│ ├── products/
-│ ├── orders/
-│ ├── cart/
-│
-├── media/
-├── static/
-├── requirements.txt
-├── .env
+│   ├── users/
+│   ├── products/
+│   ├── orders/
+│   ├── cart/
+├── media/                   # Product images
+├── static/                  # Static files
+├── mega_mart_proj/          # Main Django settings
 ├── manage.py
-├── README.md
-└── .gitignore
+├── .env                     # Env variables
+├── .gitignore
+├── requirements.txt
+└── README.md
+🛠️ Setup Instructions
+Clone the repo
 
-
-
----
-
-## ⚙️ Setup Instructions
-
-### 1. Clone the Project
-
-```bash
+bash
+Copy
+Edit
 git clone https://github.com/<your-username>/mega_mart_project.git
 cd mega_mart_project
-2. Create Virtual Environment
+Create and activate virtual environment
+
 bash
 Copy
 Edit
 python -m venv env
-source env/bin/activate  # Windows: .\env\Scripts\activate
-3. Install Requirements
+source env/bin/activate  # For Linux/macOS
+env\Scripts\activate     # For Windows
+Install dependencies
+
 bash
 Copy
 Edit
 pip install -r requirements.txt
-4. Setup Environment File
-Create .env file in root:
+Run migrations
 
-ini
-Copy
-Edit
-SECRET_KEY=your_secret
-DEBUG=True
-DATABASE_NAME=yourdbname
-DATABASE_USER=root
-DATABASE_PASSWORD=yourpass
-5. Run Migrations & Server
 bash
 Copy
 Edit
 python manage.py makemigrations
 python manage.py migrate
+Create superuser
+
+bash
+Copy
+Edit
+python manage.py createsuperuser
+Run development server
+
+bash
+Copy
+Edit
 python manage.py runserver
-📦 Tech Stack
-Django + DRF
+📄 Swagger API Docs
+Access full API docs at:
+📍 http://127.0.0.1:8000/swagger/
 
-MySQL
+🔐 JWT Authentication
+Token Endpoint:
 
-JWT Authentication
+bash
+Copy
+Edit
+POST /api/token/
+{
+  "email": "user@example.com",
+  "password": "yourpassword"
+}
+Headers for protected APIs:
 
-Git & GitHub
+pgsql
+Copy
+Edit
+Authorization: Bearer <your-access-token>
+🧪 Testing
+Run test suite with pytest:
 
-Swagger API Docs
+bash
+Copy
+Edit
+pytest
+Tests include:
 
-Celery + Redis (Planned)
+Model tests
 
-✨ Author
-Developed by Gajananshiv
-GitHub: @gajananshiv
+Serializer validation tests
+
+Signal tests
+
+Debugging via pdb, print(), and logging
+
+🧠 GitHub Flow Used
+main = production branch
+
+develop = staging branch
+
+feature/* = development branches
+
+Workflow:
+
+bash
+Copy
+Edit
+git checkout -b feature/<feature-name>
+# Work → Commit → Push
+# Create PR to develop → Merge
+📢 Tech Stack
+Backend: Django, Django REST Framework
+
+Auth: JWT (SimpleJWT)
+
+Database: SQLite (for now), MySQL supported
+
+API Docs: drf-yasg (Swagger)
+
+Testing: Pytest
+
+Version Control: Git + GitHub Flow
+
+📸 Screenshots
+✅ Swagger API UI
+✅ JWT Token Response
+✅ Admin Panel
+✅ Directory Structure (modular)
+
+✍️ Author
+👤 Gajanan Shivasharan
+📧 gajashiv1010@gmail.com
+🌍 Pune, India
+
+📌 Next Features (Planned)
+✅ Razorpay Payment Gateway Integration
+
+✅ Email Notifications (Django + Celery)
+
+✅ Role-based Access for Admin/Customer
+
+✅ Inventory & Order Management Dashboard
+
+✅ Deployment on AWS / Railway
