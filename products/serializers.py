@@ -48,6 +48,10 @@ class ProductSerializer(serializers.ModelSerializer):
         if value <=0:
             raise serializers.ValidationError("Price must be greater than zero.")
         return value
+    def validate_price(self,value):
+        if value==10:
+            raise serializers.ValidationError("price not 10")
+        return value
 
 # POST/PUT ke liye: create/update serializer with category & brand IDs
 class ProductCreateUpdateSerializer(serializers.ModelSerializer):
